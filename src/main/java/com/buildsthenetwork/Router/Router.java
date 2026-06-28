@@ -3,9 +3,6 @@ package com.buildsthenetwork.Router;
 import com.buildsthenetwork.Router.Hardware.RouterInterface;
 
 /*
-A router has interfaces and a routing table
-    Interfaces connect to other interfaces by a link (an edge)
-
     - interfaces
     - adjacency table (up)
     - routing table (up up)

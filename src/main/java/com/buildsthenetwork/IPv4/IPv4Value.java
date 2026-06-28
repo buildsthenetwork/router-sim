@@ -3,7 +3,7 @@ package com.buildsthenetwork.IPv4;
 public abstract class IPv4Value {
     protected int value;
 
-    enum Bitwise {
+    public enum Bitwise {
         AND,
         OR,
         XOR,
@@ -42,11 +42,10 @@ public abstract class IPv4Value {
     }
 
 
-    // TODO this needs rework. IPv4Value is forced to NetAddress.
-    public static IPv4Value compareValue(IPv4Value value1, IPv4Value value2, Bitwise oper) {
-        if(oper == Bitwise.AND) return new NetAddress(value1.getValue() & value2.getValue());
-        if(oper == Bitwise.OR) return new NetAddress(value1.getValue() | value2.getValue());
-        if(oper == Bitwise.XOR) return new NetAddress(value1.getValue() ^ value2.getValue());
+    public static int compareValue(IPv4Value value1, IPv4Value value2, Bitwise oper) {
+        if(oper == Bitwise.AND) return value1.getValue() & value2.getValue();
+        if(oper == Bitwise.OR) return value1.getValue() | value2.getValue();
+        if(oper == Bitwise.XOR) return value1.getValue() ^ value2.getValue();
         if(oper == Bitwise.NOT) throw new IllegalArgumentException("Bitwise.NOT not currently supported.");
 
         throw new IllegalArgumentException("Something broke.");
